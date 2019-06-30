@@ -61,19 +61,6 @@ void* lanzalloc_alloc(struct lanzalloc* lanzalloc, unsigned int size) {
 	return 0;
 }
 
-// Realloc
-/*
-void* lanzalloc_realloc(struct lanzalloc* lanzalloc, void* address, unsigned int newSize) {
-	unsigned int oldSize = *(unsigned int*)((char*)address - sizeof(unsigned int));
-	int delta = newSize - oldSize;
-	if (delta) {
-		
-	} else {
-		
-	}
-}
-*/
-
 // Defragment
 static int lanzalloc_defragment(struct lanzalloc* lanzalloc) {
 	int i, j;
@@ -127,17 +114,4 @@ unsigned int lanzalloc_freemem(struct lanzalloc* lanzalloc) {
 // Used memory
 unsigned int lanzalloc_usedmem(struct lanzalloc* lanzalloc) {
 	return lanzalloc->poolSize - lanzalloc_freemem(lanzalloc);
-}
-
-// Dump
-#include <stdio.h>
-void dumpMemory(struct lanzalloc* lanzalloc) {
-	printf("=========================\n");
-	printf("Dump Memory View:\n");
-	int i;
-	for (i = 0; i < lanzalloc->unitMax; i++) {
-		struct unit* unit = lanzalloc->units + i;
-		printf("Size:%u Pointer:%08x\n", unit->size, unit->address);
-	}
-	printf("=========================\n");
 }
