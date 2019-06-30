@@ -24,6 +24,18 @@ struct lanzalloc* lanzalloc_initialize(void* memory, unsigned int size, unsigned
 */
 void* lanzalloc_alloc(struct lanzalloc* lanzalloc, unsigned int size);
 
+
+// Realloc
+/*
+	parameters:
+	struct lanzalloc* lanzalloc: Memory will be reallocated from it.
+	void* address: Memory to be operated on.
+	unsigned int newSize: The newsize you want to reallocate.
+	return:
+	Return a pointer if alloc successfully, or return NULL.
+*/
+void* lanzalloc_realloc(struct lanzalloc* lanzalloc, void* address, unsigned int newSize);
+
 // Free
 /*
 	parameters:
