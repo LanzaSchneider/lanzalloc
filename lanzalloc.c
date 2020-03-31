@@ -39,7 +39,7 @@ static void lanzalloc_defragment_full_cycle(struct lanzalloc* lanzalloc) {
 
 // Initialize lanzalloc
 struct lanzalloc* lanzalloc_initialize(void* memory, unsigned int size, unsigned int maxunit) {
-	struct lanzalloc* lanzalloc = memory;
+	struct lanzalloc* lanzalloc = (struct lanzalloc*)memory;
 	do {
 		if (size < (sizeof(struct lanzalloc) + sizeof(struct unit) * maxunit)) break;
 		lanzalloc->unitMax = maxunit;
