@@ -1,6 +1,7 @@
 #ifndef __LANZALLOC_H__
 #define __LANZALLOC_H__
 
+typedef unsigned int lanzalloc_size_t;
 struct lanzalloc;
 
 // Initialize lanzalloc
@@ -12,7 +13,7 @@ struct lanzalloc;
 	return:
 	Return a lanzalloc pointer if initialize successfully, or return NULL.
 */
-struct lanzalloc* lanzalloc_initialize(void* memory, unsigned int size, unsigned int maxunit);
+struct lanzalloc* lanzalloc_initialize(void* memory, lanzalloc_size_t size, lanzalloc_size_t maxunit);
 
 // Alloc
 /*
@@ -22,7 +23,7 @@ struct lanzalloc* lanzalloc_initialize(void* memory, unsigned int size, unsigned
 	return:
 	Return a pointer if alloc successfully, or return NULL.
 */
-void* lanzalloc_alloc(struct lanzalloc* lanzalloc, unsigned int size);
+void* lanzalloc_alloc(struct lanzalloc* lanzalloc, lanzalloc_size_t size);
 
 
 // Realloc
@@ -34,7 +35,7 @@ void* lanzalloc_alloc(struct lanzalloc* lanzalloc, unsigned int size);
 	return:
 	Return a pointer if alloc successfully, or return NULL.
 */
-void* lanzalloc_realloc(struct lanzalloc* lanzalloc, void* address, unsigned int newSize);
+void* lanzalloc_realloc(struct lanzalloc* lanzalloc, void* address, lanzalloc_size_t new_size);
 
 // Free
 /*
@@ -49,13 +50,13 @@ void lanzalloc_free(struct lanzalloc* lanzalloc, void* address);
 	return:
 	Return the size of free memory.
 */
-unsigned int lanzalloc_freemem(struct lanzalloc* lanzalloc);
+lanzalloc_size_t lanzalloc_freemem(struct lanzalloc* lanzalloc);
 
 // Used memory
 /*
 	return:
 	Return the size of used memory.
 */
-unsigned int lanzalloc_usedmem(struct lanzalloc* lanzalloc);
+lanzalloc_size_t lanzalloc_usedmem(struct lanzalloc* lanzalloc);
 
 #endif

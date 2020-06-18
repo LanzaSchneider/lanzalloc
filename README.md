@@ -9,7 +9,7 @@ struct lanzalloc* lanzalloc;
 if (!(lanzalloc = lanzalloc_initialize(buffer, BUF_SIZE, 10))) {  
     /* ERROR HANDLING */  
 }  
-unsigned char* ptr = (char*)lanzalloc_alloc(lanzalloc, 32);  
+unsigned char* ptr = (unsigned char*)lanzalloc_alloc(lanzalloc, 32);  
 /* DO SOMETHING */  
 lanzalloc_free(lanzalloc, ptr);  
 ```
