@@ -2,7 +2,7 @@
 A simple memory allocation library
 
 # example
-```
+```c
 #define BUF_SIZE 256  
 unsigned char buffer[BUF_SIZE];  
 struct lanzalloc* lanzalloc;  
